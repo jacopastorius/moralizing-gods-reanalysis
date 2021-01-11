@@ -6,3 +6,4 @@
 *.png
 
 !output/*
+.Rproj.user

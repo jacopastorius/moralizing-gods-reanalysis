@@ -1,3 +1,23 @@
+# add lines to enable automatic loading of packages that are off cran
+
+if (!require( devtools )) {
+  install.packages( "devtools" )
+}
+
+if (!require( rethinking )) {
+  devtools::install_github( "rmcelreath/rethinking" )
+}
+
+if (!require( glmmADMB )) {
+  install.packages( "glmmADMB",
+                    repos = c(
+                      "http://glmmadmb.r-forge.r-project.org/repos",
+                      getOption("repos")
+                    ),
+                    type = "source"
+  )
+}
+
 library(maps)
 library(plotrix)
 library(plyr) # this has to be first, also manually call plyr::rename to avoid problems
@@ -9,7 +29,7 @@ library(rethinking) # github.com/rmcelreath/rethinking
 
 library(dplyr)
 library(glmmTMB)
-library(glmmADMB)
+library(glmmADMB) # called "R2admb" on CRAN
 library(lme4)
 library(DHARMa)
 library(bbmle)
@@ -17,7 +37,6 @@ library(reshape)
 library(yarrr)
 library(ggpubr)
 library(effects)
-
 library(rmarkdown)
 
 set.seed(1234)

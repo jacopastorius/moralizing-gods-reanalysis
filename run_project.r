@@ -2,7 +2,6 @@
 rm(list = ls())
 
 source("./project_support.r")
-
 dir_init("./01_precheck/input/")
 files <- c("./data/polities.csv", "./data/variables.csv",
   "./data/exportdat.csv")
